@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AddNote from "./AddNote";
 
 const HeaderSection = ({noteItem}) => {
-  const [notes, setNotes] = useState([]);
+  // const [notes, setNotes] = useState([]);
   const [isAddingNote, setIsAddingNote] = useState(false);
 
   const handleAddNote = () => {
@@ -14,9 +14,10 @@ const HeaderSection = ({noteItem}) => {
   };
 
   const handleSaveNote = (newNote) => {
-    setNotes(() => {
-      noteItem(newNote);
-    });
+    // setNotes(() => {
+    //   noteItem(newNote);
+    // });
+    noteItem(newNote);
     setIsAddingNote(false);
   };
 
