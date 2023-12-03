@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import NoteContainer from './component/NoteContainer';
 import NoteHeader from './component/NoteHeader';
 import HeaderSection from './component/HeaderSection';
@@ -30,6 +30,20 @@ const deleteListItem = (id) => {
    setList(updatedNotes);
    console.log(updatedNotes);
 }
+
+useEffect(()=>{
+   const savedNote = JSON.parse(
+      localStorage.getItem('note-app-data')
+   );
+
+   if (Array.isArray(savedNote)) {
+      setList(savedNote);
+      } 
+   },[]);
+
+useEffect(()=>{
+   localStorage.setItem('note-app-data',JSON.stringify(noteList))
+},[noteList]);
 
  return (
     <div className="App">
